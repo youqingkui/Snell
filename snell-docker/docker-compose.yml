@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  snell:
+    build: .
+    container_name: snell-docker
+    ports:
+      - "6666:6666"
+      - "9999:9999"
+    environment:
+      - SNELL_PORT=6666
+      - SNELL_PSK=your_psk_here
+      - SNELL_IPV6=false
+      - SNELL_OBFS=off
+      - SNELL_TFO=false
+      - STLS_LISTEN=0.0.0.0:9999
+      - TLS_DOMAIN=gateway.icloud.com
+      - STLS_PASSWORD=your_password_here
+    restart: unless-stopped 
